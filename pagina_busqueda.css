@@ -1,11 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
     background: #f4ece4;
     color: #3e2c23;
-    background-image: url('images/Ingredientes.png');
-    background-attachment:scroll;
-    background-size: cover;
+
 }
 
 header {
@@ -41,44 +40,59 @@ nav a:hover {
     color: #b08968;
 }
 
-main {
+.buscador {
+    text-align: center;
+    margin: 40px auto;
     padding: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.presentacion {
     background: #b08968;
     color: white;
-    padding: 30px;
-    text-align: center;
     border-radius: 12px;
-    margin-bottom: 40px;
+    width: 80%;
+    max-width: 600px;
 }
 
-.recetas-destacadas h2 {
-    text-align: center;
-    color: #a97155;
-    margin-bottom: 20px;
+.buscador input {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
 }
 
-.recetas-grid {
+.buscador button {
+    padding: 10px 20px;
+    border: none;
+    background: #7c5e48;
+    color: white;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.buscador button:hover {
+    background: #5e4131;
+}
+
+.resultados {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
+
 .receta {
     background: #fff;
     border-radius: 12px;
-    width: 300px;
+    width: 280px;
     overflow: hidden;
     border: 1px solid #e6ccb2;
+    text-align: left;
 }
 
 .receta img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
 }
 
@@ -93,12 +107,12 @@ main {
     color: #7c5e48;
     font-size: 0.95em;
 }
+
 .receta:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: transform 0.2s, box-shadow 0.2s;
 }
-
 
 footer {
     background: #b08968;
@@ -107,49 +121,4 @@ footer {
     padding: 20px;
     margin-top: 40px;
     border-radius: 12px 12px 0 0;
-}
-
-.tarjetas {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.movimiento_tarjetas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.tarjeta1,
-.tarjeta2,
-.tarjeta3 {
-    
-    background-color: #ffffff;
-    border: 1px solid #e6ccb2;
-    border-radius: 12px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-.tarjeta1:hover,
-.tarjeta2:hover,
-.tarjeta3:hover {
-    transform: scale(1.05);
-}
-
-.tarjetas h3 {
-    font-size: 1.2em;
-    color: #7c5e48;
-    margin-bottom: 10px;
-}
-
-.icono {
-    font-size: 2.5em;
-    color: #b08968;
 }
