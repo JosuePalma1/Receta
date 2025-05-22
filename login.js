@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const usuario = document.getElementById('usuario');
     const contraseña = document.getElementById('contraseña');
-    const confirmar = document.getElementById('confirmar');
     const btnlogin = document.getElementById('btnlogin');
 
     usuario.addEventListener('input', validarUsuario);
     contraseña.addEventListener('input', validarContraseña);
-    confirmar.addEventListener('input', validarConfirmar);
 
     btnlogin.addEventListener('click', (e) => {
         e.preventDefault();
@@ -48,26 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function validarConfirmar() {
-        const error = document.getElementById('errorConfirmar');
-        if (confirmar.value !== contraseña.value) {
-            error.textContent = 'Las contraseñas no coinciden.';
-            confirmar.classList.add('invalido');
-            confirmar.classList.remove('valido');
-            return false;
-        } else {
-            error.textContent = '';
-            confirmar.classList.remove('invalido');
-            confirmar.classList.add('valido');
-            return true;
-        }
-    }
-
     function validarFormulario() {
         const usuarioValido = validarUsuario();
         const contraseñaValida = validarContraseña();
-        const confirmarValido = validarConfirmar();
         
-        return usuarioValido && contraseñaValida && confirmarValido;
+        return usuarioValido && contraseñaValida;
     }
 });
