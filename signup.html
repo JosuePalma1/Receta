@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>🍳Registrarse</title>
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
     <header>
+        <h1>🍳 El hueco, recetario</h1>
             <nav>
-                <p><a href="index.html">🍳 El hueco, recetario</a></p>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="login.html">Iniciar Sesión</a></li>
@@ -19,27 +19,43 @@
     </header>
 
     <main>
-    <h1>Crear Cuenta</h1>
-    <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre"><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password"><br><br>
-        
-        <label for="confirm">Confirmar contraseña:</label>
-        <input type="password" id="confirm" name="confirm"><br><br>
-        
-        <button type="submit">Registrarse</button>
-    </form>
-    <p><a href="login.html">Ya tengo cuenta</a></p>
-    <p><a href="index.html">Volver al inicio</a></p>
+        <div class="formulario">
+            <h1>Registrarse</h1>
+            <form id="formsignup">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                    <span class="mensaje-error" id="errorNombre"></span>
+                </div>
+                <div class="campo">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                    <span class="mensaje-error" id="errorTelefono"></span>
+                </div>
+                <div class="campo">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" required>
+                    <span class="mensaje-error" id="errorUsuario"></span>
+                </div>
+                <div class="campo">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" required>
+                    <span class="mensaje-error" id="errorContraseña"></span>
+                </div>
+                <div class="campo">
+                    <label for="confirmar">Confirmar Contraseña:</label>
+                    <input type="password" id="confirmar" required>
+                    <span class="mensaje-error" id="errorConfirmar"></span>
+                </div>
+                <button type="button" id="btnsignup">Registrarse</button>
+            </form>
+            <div><p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p></div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 El Hueco. Todos los derechos reservados.</p>
+    </footer>
+    <script src="signup.js"></script>
 </body>
 </html>
