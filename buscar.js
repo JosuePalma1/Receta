@@ -1,4 +1,5 @@
-const recetas = [
+// Recetas por defecto
+const recetasDefault = [
     {
         titulo: "Pollo al horno",
         ingredientes: "pollo, papas, ajo, sal",
@@ -17,11 +18,22 @@ const recetas = [
         imagen: "https://imag.bonviveur.com/espaguetis-a-la-carbonara-con-nata.jpg",
         descripcion: "Espaguetis a la carbonara, un plato italiano clásico que combina pasta al dente con una salsa cremosa de huevo, queso parmesano y panceta crujiente. Rápido y fácil de preparar, perfecto para una cena deliciosa en casa.",
     },
-]
+];
+
+// Función para obtener todas las recetas (por defecto + guardadas)
+function obtenerTodasLasRecetas() {
+    // Obtener recetas personalizadas del localStorage
+    const recetasPersonalizadas = JSON.parse(localStorage.getItem('recetasPersonalizadas')) || [];
+    
+    // Combinar recetas por defecto con las personalizadas
+    return [...recetasDefault, ...recetasPersonalizadas];
+}
 
 function buscarReceta() {
     const busqueda = document.getElementById("escribir-busqueda").value.toLowerCase();
-    const resultados = recetas.filter(receta => {
+    const todasLasRecetas = obtenerTodasLasRecetas();
+    
+    const resultados = todasLasRecetas.filter(receta => {
         return receta.titulo.toLowerCase().includes(busqueda) ||
                receta.ingredientes.toLowerCase().includes(busqueda);
     });
@@ -47,3 +59,12 @@ function buscarReceta() {
         resultadosDiv.innerHTML = "<p>No se encontraron recetas.</p>";
     }
 }
+
+// Mostrar todas las recetas al cargar la página
+window.addEventListener('load', function() {
+    const todasLasRecetas = obtenerTodasLasRecetas();
+    const resultadosDiv = document.getElementById("resultados");
+    
+    // Mostrar un mensaje inicial
+    resultadosDiv.innerHTML = "<p style='text-align:center; color:#7c5e48;'>Escribe algo en el buscador para encontrar recetas, o busca por ingrediente.</p>";
+});
