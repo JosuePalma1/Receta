@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnsignup.addEventListener('click', (e) => {
         e.preventDefault();
         if (validarFormulario()) {
-            // Aquí puedes agregar la lógica para procesar el registro
             alert('¡Registro exitoso! Bienvenido a El Hueco.');
-            // Por ejemplo, redirigir a login o página principal:
-            // window.location.href = 'login.html';
+            window.location.href = 'login.html';
         }
     });
 

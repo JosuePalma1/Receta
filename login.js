@@ -9,10 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnlogin.addEventListener('click', (e) => {
         e.preventDefault();
         if (validarFormulario()) {
-            // Aquí puedes agregar la lógica para procesar el login
             alert('Formulario válido. Iniciando sesión...');
-            // Por ejemplo, redirigir a otra página:
-            // window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         }
     });
 
