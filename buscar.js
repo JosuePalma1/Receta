@@ -1,4 +1,3 @@
-// Recetas por defecto
 const recetasDefault = [
     {
         titulo: "Pollo al horno",
@@ -20,12 +19,9 @@ const recetasDefault = [
     },
 ];
 
-// Función para obtener todas las recetas (por defecto + guardadas)
+
 function obtenerTodasLasRecetas() {
-    // Obtener recetas personalizadas del localStorage
     const recetasPersonalizadas = JSON.parse(localStorage.getItem('recetasPersonalizadas')) || [];
-    
-    // Combinar recetas por defecto con las personalizadas
     return [...recetasDefault, ...recetasPersonalizadas];
 }
 
@@ -60,11 +56,8 @@ function buscarReceta() {
     }
 }
 
-// Mostrar todas las recetas al cargar la página
 window.addEventListener('load', function() {
     const todasLasRecetas = obtenerTodasLasRecetas();
     const resultadosDiv = document.getElementById("resultados");
-    
-    // Mostrar un mensaje inicial
     resultadosDiv.innerHTML = "<p style='text-align:center; color:#7c5e48;'>Escribe algo en el buscador para encontrar recetas, o busca por ingrediente.</p>";
 });

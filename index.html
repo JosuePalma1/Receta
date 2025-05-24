@@ -66,36 +66,33 @@
                     </a>
                 </div>
             </section>
-
-            <!-- Modal -->
-<div id="modalReceta" class="modal">
-    <div class="modal-contenido">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <h2>Subir Nueva Receta</h2>
-        <form id="formularioReceta">
-            <div class="campo">
-                <label for="nombreReceta">Nombre de la receta:</label>
-                <input type="text" id="nombreReceta" name="nombreReceta" required>
-            </div>
-            
-            <div class="campo">
-                <label for="fotoReceta">Foto de la receta:</label>
-                <input type="file" id="fotoReceta" name="fotoReceta" accept="image/*" required>
-            </div>
-            
-            <div class="campo">
-                <label for="descripcionReceta">Descripción de la receta:</label>
-                <textarea id="descripcionReceta" name="descripcionReceta" rows="5" required></textarea>
-            </div>
-            
-            <div class="botones">
-                <button type="submit">Subir Receta</button>
-                <button type="button" onclick="cerrarModal()">Cancelar</button>
-            </div>
-        </form>
+    <div id="modalReceta" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">&times;</span>
+            <h2>Subir Nueva Receta</h2>
+            <form id="formularioReceta">
+                <div class="campo">
+                    <label for="nombreReceta">Nombre de la receta:</label>
+                    <input type="text" id="nombreReceta" name="nombreReceta" required>
+                </div>
+                
+                <div class="campo">
+                    <label for="fotoReceta">Foto de la receta:</label>
+                    <input type="file" id="fotoReceta" name="fotoReceta" accept="image/*" required>
+                </div>
+                
+                <div class="campo">
+                    <label for="descripcionReceta">Descripción de la receta:</label>
+                    <textarea id="descripcionReceta" name="descripcionReceta" rows="5" required></textarea>
+                </div>
+                
+                <div class="botones">
+                    <button type="submit">Subir Receta</button>
+                    <button type="button" onclick="cerrarModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
         </main>
 
         <footer>

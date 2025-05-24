@@ -1,4 +1,3 @@
-// Recetas por defecto
 const recetasDefault = [
     {
         id: 'receta-1',
@@ -22,34 +21,23 @@ const recetasDefault = [
         descripcion: "Espaguetis a la carbonara, un plato italiano clásico que combina pasta al dente con una salsa cremosa de huevo, queso parmesano y panceta crujiente. Rápido y fácil de preparar, perfecto para una cena deliciosa en casa.",
     },
 ];
-
-// Función para obtener todas las recetas con IDs únicos
 function obtenerTodasLasRecetas() {
     const recetasPersonalizadas = JSON.parse(localStorage.getItem('recetasPersonalizadas')) || [];
-    
-    // Agregar IDs únicos a las recetas personalizadas si no los tienen
     const recetasPersonalizadasConId = recetasPersonalizadas.map((receta, index) => ({
         ...receta,
         id: receta.id || `receta-personal-${index + 1}`
     }));
-    
     return [...recetasDefault, ...recetasPersonalizadasConId];
 }
-
-// Función para obtener comentarios de una receta
 function obtenerComentarios(recetaId) {
     const comentarios = JSON.parse(localStorage.getItem('comentarios')) || {};
     return comentarios[recetaId] || [];
 }
-
-// Función para guardar comentario
 function guardarComentario(recetaId, autor, texto) {
     const comentarios = JSON.parse(localStorage.getItem('comentarios')) || {};
-    
     if (!comentarios[recetaId]) {
         comentarios[recetaId] = [];
     }
-    
     const nuevoComentario = {
         autor: autor,
         texto: texto,
@@ -61,31 +49,23 @@ function guardarComentario(recetaId, autor, texto) {
             minute: '2-digit'
         })
     };
-    
     comentarios[recetaId].push(nuevoComentario);
     localStorage.setItem('comentarios', JSON.stringify(comentarios));
-    
     return nuevoComentario;
 }
-
-// Función para crear el HTML de una receta con comentarios
 function crearRecetaHTML(receta) {
     const comentarios = obtenerComentarios(receta.id);
-    
     return `
         <div class="receta-comentario">
             <div class="receta-header">
                 <img src="${receta.imagen}" alt="${receta.titulo}" class="receta-imagen">
                 <div class="receta-info">
                     <h3>${receta.titulo}</h3>
-                    <p><strong>Ingredientes:</strong> ${receta.ingredientes}</p>
                     <p>${receta.descripcion}</p>
                 </div>
             </div>
-            
             <div class="comentarios-seccion">
                 <h4 class="comentarios-titulo">💬 Comentarios (${comentarios.length})</h4>
-                
                 <div class="comentarios-lista" id="comentarios-${receta.id}">
                     ${comentarios.length > 0 ? 
                         comentarios.map(comentario => `
@@ -98,7 +78,6 @@ function crearRecetaHTML(receta) {
                         '<div class="sin-comentarios">No hay comentarios aún. ¡Sé el primero en comentar!</div>'
                     }
                 </div>
-                
                 <div class="agregar-comentario">
                     <form class="form-comentario" onsubmit="agregarComentario(event, '${receta.id}')">
                         <input type="text" placeholder="Tu nombre" required maxlength="50">
@@ -110,27 +89,19 @@ function crearRecetaHTML(receta) {
         </div>
     `;
 }
-
 // Función para agregar comentario
 function agregarComentario(event, recetaId) {
     event.preventDefault();
-    
     const form = event.target;
     const autor = form.querySelector('input[type="text"]').value.trim();
     const texto = form.querySelector('textarea').value.trim();
-    
     if (autor && texto) {
-        // Guardar comentario
         const nuevoComentario = guardarComentario(recetaId, autor, texto);
-        
-        // Actualizar la visualización
         const comentariosLista = document.getElementById(`comentarios-${recetaId}`);
-        const sinComentarios = comentariosLista.querySelector('.sin-comentarios');
-        
+        const sinComentarios = comentariosLista.querySelector('.sin-comentarios');   
         if (sinComentarios) {
             sinComentarios.remove();
         }
-        
         const comentarioHTML = `
             <div class="comentario">
                 <div class="comentario-autor">${nuevoComentario.autor}</div>
@@ -138,23 +109,14 @@ function agregarComentario(event, recetaId) {
                 <div class="comentario-fecha">${nuevoComentario.fecha}</div>
             </div>
         `;
-        
         comentariosLista.insertAdjacentHTML('beforeend', comentarioHTML);
-        
-        // Actualizar contador
         const titulo = comentariosLista.parentElement.querySelector('.comentarios-titulo');
         const nuevosComentarios = obtenerComentarios(recetaId);
         titulo.textContent = `💬 Comentarios (${nuevosComentarios.length})`;
-        
-        // Limpiar formulario
         form.reset();
-        
-        // Mostrar mensaje de éxito
         alert('¡Comentario agregado exitosamente!');
     }
 }
-
-// Cargar todas las recetas al iniciar la página
 window.addEventListener('load', function() {
     const recetas = obtenerTodasLasRecetas();
     const contenedor = document.getElementById('recetas-comentarios');
