@@ -184,7 +184,6 @@ footer {
     box-sizing: border-box;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .formulario {
         margin: 15px;

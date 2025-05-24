@@ -89,7 +89,6 @@ function crearRecetaHTML(receta) {
         </div>
     `;
 }
-// Función para agregar comentario
 function agregarComentario(event, recetaId) {
     event.preventDefault();
     const form = event.target;
