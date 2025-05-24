@@ -267,3 +267,28 @@ footer {
 .botones button[type="button"]:hover {
     background-color: #d4b896;
 }
+.modal-content {
+    background-color: #fff5e9;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background-color: #b08968;
+    color: white;
+}
+
+.modal-title {
+    color: #fff;
+}
+
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #e6ccb2;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.list-group-item strong {
+    color: #7c5e48;
+}
