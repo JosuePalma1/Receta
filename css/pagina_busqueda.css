@@ -4,7 +4,13 @@ body {
     padding: 0;
     background: #f4ece4;
     color: #3e2c23;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
+main {
+    flex: 1;
 }
 
 header {
@@ -119,6 +125,8 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
     border-radius: 12px 12px 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
 }
