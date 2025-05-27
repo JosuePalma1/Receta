@@ -3,7 +3,7 @@ body {
     margin: 0;
     background: #f4ece4;
     color: #3e2c23;
-    background-image: url('images/Ingredientes.png');
+    background-image: url('../images/Ingredientes.png');
     background-attachment:scroll;
     background-size: cover;
 }
