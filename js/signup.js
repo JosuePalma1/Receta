@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmar = document.getElementById('confirmar');
     const btnsignup = document.getElementById('btnsignup');
 
+    // Credenciales requeridas para el registro
+    const USUARIO_REQUERIDO = 'yimjosmar';
+    const CONTRASEÑA_REQUERIDA = '12122204';
+
     nombre.addEventListener('input', validarNombre);
     telefono.addEventListener('input', validarTelefono);
     usuario.addEventListener('input', validarUsuario);
@@ -15,8 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
     btnsignup.addEventListener('click', (e) => {
         e.preventDefault();
         if (validarFormulario()) {
-            alert('¡Registro exitoso! Bienvenido a El Hueco.');
-            window.location.href = 'login.html';
+            // Validar que el usuario y contraseña sean los específicos
+            if (usuario.value === USUARIO_REQUERIDO && contraseña.value === CONTRASEÑA_REQUERIDA) {
+                alert('¡Registro exitoso! Bienvenido a El Hueco.');
+                window.location.href = 'login.html';
+            } else {
+                alert('Error: Debes registrarte con el usuario "yimjosmar" y la contraseña "12122204".');
+                // Marcar campos específicos como inválidos
+                if (usuario.value !== USUARIO_REQUERIDO) {
+                    const errorUsuario = document.getElementById('errorUsuario');
+                    errorUsuario.textContent = 'El usuario debe ser "yimjosmar".';
+                    usuario.classList.add('invalido');
+                }
+                if (contraseña.value !== CONTRASEÑA_REQUERIDA) {
+                    const errorContraseña = document.getElementById('errorContraseña');
+                    errorContraseña.textContent = 'La contraseña debe ser "12122204".';
+                    contraseña.classList.add('invalido');
+                }
+            }
         }
     });
 
@@ -74,6 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
             usuario.classList.add('invalido');
             usuario.classList.remove('valido');
             return false;
+        } else if (usuario.value !== USUARIO_REQUERIDO) {
+            error.textContent = 'El usuario debe ser "yimjosmar".';
+            usuario.classList.add('invalido');
+            usuario.classList.remove('valido');
+            return false;
         } else {
             error.textContent = '';
             usuario.classList.remove('invalido');
@@ -86,6 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const error = document.getElementById('errorContraseña');
         if (contraseña.value.length < 8) {
             error.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+            contraseña.classList.add('invalido');
+            contraseña.classList.remove('valido');
+            return false;
+        } else if (contraseña.value !== CONTRASEÑA_REQUERIDA) {
+            error.textContent = 'La contraseña debe ser "12122204".';
             contraseña.classList.add('invalido');
             contraseña.classList.remove('valido');
             return false;
