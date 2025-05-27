@@ -19,9 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
 function cerrarSesion() {
-    localStorage.removeItem('usuarioLogeado');
-    window.location.href = 'index.html';
+    if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
+        localStorage.removeItem('usuario');
+        document.getElementById('cerrarSesionLi').style.display = 'none';
+        document.getElementById('seccionTarjetas').style.display = 'none';
+        document.getElementById('navLogin').style.display = 'block';
+        document.getElementById('navSignup').style.display = 'block';
+        alert("¡Sesión cerrada exitosamente!");
+    }
 }
 
 function abrirModal() {
