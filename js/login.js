@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnlogin = document.getElementById('btnlogin');
 
     // Credenciales válidas
-    const USUARIO_VALIDO = 'pepito';
+    const USUARIO_VALIDO = 'yimjosmar';
     const CONTRASEÑA_VALIDA = '12122204';
 
     usuario.addEventListener('input', validarUsuario);
