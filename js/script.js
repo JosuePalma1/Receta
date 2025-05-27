@@ -1,3 +1,29 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const usuarioLogeado = localStorage.getItem('usuarioLogeado');
+
+    const tarjetas = document.getElementById('seccionTarjetas');
+    const cerrarSesionLi = document.getElementById('cerrarSesionLi');
+    const navLogin = document.getElementById('navLogin');
+    const navSignup = document.getElementById('navSignup');
+
+    if (usuarioLogeado === 'true') {
+        if (tarjetas) tarjetas.style.display = 'block';
+        if (cerrarSesionLi) cerrarSesionLi.style.display = 'inline-block';
+        if (navLogin) navLogin.style.display = 'none';
+        if (navSignup) navSignup.style.display = 'none';
+    } else {
+        if (tarjetas) tarjetas.style.display = 'none';
+        if (cerrarSesionLi) cerrarSesionLi.style.display = 'none';
+        if (navLogin) navLogin.style.display = 'inline-block';
+        if (navSignup) navSignup.style.display = 'inline-block';
+    }
+});
+
+function cerrarSesion() {
+    localStorage.removeItem('usuarioLogeado');
+    window.location.href = 'index.html';
+}
+
 function abrirModal() {
     document.getElementById('modalReceta').style.display = 'block';
 }

@@ -13,9 +13,10 @@
             <h1>🍳 El hueco, recetario</h1>
             <nav>
                 <ul>
-                    <li><a href="login.html">Iniciar Sesión</a></li>
-                    <li><a href="signup.html">Registrarse</a></li>
-                   <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalContacto">Contacto</a></li>                     
+                    <li id="navLogin"><a href="login.html">Iniciar Sesión</a></li>
+                    <li id="navSignup"><a href="signup.html">Registrarse</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalContacto">Contacto</a></li>
+                    <li id="cerrarSesionLi" style="display: none;"><a href="#" onclick="cerrarSesion()">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </header>
@@ -51,7 +52,7 @@
                             fácil de preparar y lleno de sabor. Ideal para una cena rápida y deliciosa.</p>
                 </div>
             </section>
-            <section class="tarjetas">
+            <section class="tarjetas" id="seccionTarjetas" style="display: none;">
                 <div class="movimiento_tarjetas">
                     <a href="#" class="tarjeta1" onclick="abrirModal()">
                         <h3>Sube recetas nuevas</h3>

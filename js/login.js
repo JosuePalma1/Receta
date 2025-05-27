@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Validar credenciales específicas
             if (usuario.value === USUARIO_VALIDO && contraseña.value === CONTRASEÑA_VALIDA) {
                 alert('¡Inicio de sesión exitoso! Bienvenido ' + USUARIO_VALIDO);
+                localStorage.setItem('usuarioLogeado', 'true'); //guardar estado de sesión
                 window.location.href = 'index.html';
             } else {
                 alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
