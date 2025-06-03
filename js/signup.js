@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnsignup.addEventListener('click', (e) => {
         e.preventDefault();
         if (validarFormulario()) {
-            alert('¡Registro exitoso! Bienvenido a El Hueco.');
+            alert('¡Registro exitoso! Bienvenido a La Hueca.');
             window.location.href = 'login.html';
         }
     });
